@@ -43,4 +43,5 @@ class Player {
 
   private:
       std::vector<Card> hand;
+      std::string playerName;
 }
