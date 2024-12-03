@@ -15,6 +15,7 @@ class Card {
       std::string toString() const;
       Color getColor() const;
       Type getType() const;
+      int getValue() const;
 
   private:
       Color color;
