@@ -61,4 +61,22 @@ void Deck::initializeDeck() {
     }
 }
 
-// Player Class                                                 
+Player::Player(const std::string &name) : playerName(name) {}
+
+void Player::drawCard(Deck &deck) {
+    if (!deck.isEmpty()) {
+        Card drawnCard = deck.draw();
+        hand.push_back(drawnCard);
+    }
+}
+
+void Player::showHand() const {
+    std::cout << playerName << "'s hand:" << std::endl;
+    for (size_t i = 0; i < hand.size(); ++i) {
+        std::cout << i + 1 << ". " << hand[i].toString() << std::endl;
+    }
+}
+
+std::string Player::getName() const {
+    return playerName;
+}                                              
