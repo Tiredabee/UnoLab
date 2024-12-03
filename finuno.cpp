@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 #include "uno.h"
 #include <algorithm>
 #include <iostream>
@@ -207,8 +207,9 @@ std::string UnoGame::colorToString(Color color) const {
 }
 
 
+
 void UnoGame::takeTurn() {
-    bool gameOver = false;  
+    bool gameOver = false;  // Declare the game over flag locally
 
     if (gameOver) {
         std::cout << "The game is already over!" << std::endl;
@@ -220,7 +221,7 @@ void UnoGame::takeTurn() {
     bool validPlay = false;
     bool hasValidCard = false;
 
-  
+    // Check if the player has any valid cards
     for (const auto& card : currentPlayer.getHand()) {
         if (isValidPlay(card)) {
             hasValidCard = true;
@@ -251,6 +252,20 @@ void UnoGame::takeTurn() {
             std::cout << "Invalid input. Skipping your turn." << std::endl;
             nextPlayer();
             return;
+        }
+    }
+
+    // Check if the player has only one card left
+    if (currentPlayer.getHand().size() == 1) {
+        std::cout << currentPlayer.getName() << ", you have one card left! Say 'UNO' to continue." << std::endl;
+        std::string unoResponse;
+        std::cin >> unoResponse;
+
+        // If the player doesn't say 'UNO', you can enforce a penalty or just print a message
+        if (unoResponse != "UNO" && unoResponse != "uno") {
+            std::cout << "You didn't say 'UNO'! You have been penalized." << std::endl;
+            // Implement penalty logic, e.g., drawing a card, skipping a turn, etc.
+            currentPlayer.drawCard(deck);  // Example of a penalty (draw a card)
         }
     }
 
@@ -322,6 +337,7 @@ void UnoGame::takeTurn() {
 
 
 
+
 void UnoGame::nextPlayer() {
     if (reverseOrder) {
         currentPlayerIndex = (currentPlayerIndex - 1 + players.size()) % players.size();
@@ -380,6 +396,9 @@ bool UnoGame::isValidPlay(const Card &card) const {
     // If no match in color, value, or type, it’s not a valid play
     return false;
 }
+
+
+
 
 
 
