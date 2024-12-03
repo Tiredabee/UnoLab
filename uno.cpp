@@ -5,7 +5,43 @@
 
 
 // Card Class
+Card::Card(Color color, Type type, int value)
+    : color(color), type(type), value(value) {}
 
+std::string Card::toString() const {
+    std::string colorStr;
+    switch (color) {
+        case Color::RED: colorStr = "Red"; break;
+        case Color::GREEN: colorStr = "Green"; break;
+        case Color::BLUE: colorStr = "Blue"; break;
+        case Color::YELLOW: colorStr = "Yellow"; break;
+        case Color::NONE: colorStr = "None"; break;
+    }
+
+    std::string typeStr;
+    switch (type) {
+        case Type::NUMBER: typeStr = std::to_string(value); break;
+        case Type::SKIP: typeStr = "Skip"; break;
+        case Type::REVERSE: typeStr = "Reverse"; break;
+        case Type::DRAW_TWO: typeStr = "Draw Two"; break;
+        case Type::WILD: typeStr = "Wild"; break;
+        case Type::WILD_DRAW_FOUR: typeStr = "Wild Draw Four"; break;
+    }
+
+    return colorStr + " " + typeStr;
+}
+
+Color Card::getColor() const {
+    return color;
+}
+
+Type Card::getType() const {
+    return type;
+}
+
+int Card::getValue() const {
+    return value;
+}
 
 // Deck Class
 Deck::Deck() {
