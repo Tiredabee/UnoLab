@@ -1,0 +1,20 @@
+Noelle Whidden:
+    TOTAL TIME LOGGED: 7.5 hours
+
+    11-29, 8:30-9:00, 0.5 hours
+    I set up my portion of the uno.cpp file with the functions and vector that were given in the uno.h file. I also came up with a
+    plan of when I was going to work on actually getting my class done.
+
+    12-2, 12:30-4:30, 4 hours
+    I was able to get my class completed during this time. My biggest issues were figuring out how to test it since I only had that
+    class, but I made sure that it worked on its own before I added it to the GitHub so that we could make sure all of the classes
+    worked together.
+
+    12-4, 8:00-9:00, 1 hour
+    We had all of the classes coded at this point, so I scp-ed them onto my computer to test them. I had some issues with them
+    compiling.
+
+    12-5, 5:00-7:00, 2 hours
+    We worked on making sure that the code worked effectively on our computers, as well as the other submissions that go along with
+    this lab.
+
