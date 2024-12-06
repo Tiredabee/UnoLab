@@ -1,3 +1,13 @@
+/* Final Lab - Uno
+ *
+ * Noelle Whidden, Raj Khot, Abbi Upchurch
+ *
+ * For our final lab we decided to create an Uno game. It allows for 2-6 players to play, deals them a hand of 7 random
+ * cards, and keeps track of a discard pile. It correctly checks for the colors of discarded cards as well as face value,
+ * and enforces the official rules of Uno throughout the game. 
+ *
+ * finuno.h is the header file for finuno.cpp, and initializes the functions and other components used in the program. */
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,6 +15,7 @@
 #include <ctime>
 #include <cstdlib>
 
+// Colors of cards used in Uno
 enum class Color {
     RED,
     GREEN,
@@ -13,6 +24,7 @@ enum class Color {
     NONE
 };
 
+// Types of cards used in Uno
 enum class Type {
     NUMBER,
     SKIP,
@@ -22,6 +34,7 @@ enum class Type {
     WILD_DRAW_FOUR
 };
 
+// The card class contains the functions used in regards to the specific cards
 class Card {
     public:
         Card(Color color, Type type, int value = 0);
@@ -41,6 +54,7 @@ class Card {
 
 };
 
+// The deck class contains functions used in regards to the deck of cards as a whole
 class Deck {
     public:
         Deck();
@@ -53,6 +67,7 @@ class Deck {
         void initializeDeck();
 };
 
+// The player class contains functions used in regards to the players of the game
 class Player {
     public:
         Player(const std::string &name);
@@ -69,6 +84,7 @@ class Player {
         std::string playername;
 };
 
+// The UnoGame class contains functions used to control the actual playing of the game of Uno
 class UnoGame {
     public:
         UnoGame(int numPlayers);
