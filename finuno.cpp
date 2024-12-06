@@ -1,3 +1,11 @@
+/* Final Lab - Uno
+ *
+ * Noelle Whidden, Raj, Abbi
+ *
+ * For our final lab we decided to create an Uno game. It allows for 2-6 players to play, deals them a hand of 7 random
+ * cards, and keeps track of a discard pile. It correctly checks for the colors of discarded cards as well as face value,
+ * and enforces the official rules of Uno throughout the game. */ 
+
 #include "uno.h"
 #include <algorithm>
 #include <iostream>
