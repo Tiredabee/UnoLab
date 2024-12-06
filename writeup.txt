@@ -1,7 +1,8 @@
 WHAT WENT WELL:
     None of us knew each other before we started working on this project, so it was good that we got along pretty well. We also had
     an idea right at the start so we didn't spend a lot of time trying to think of ideas, and instead were able to start planning
-    and working. Our idea was also pretty straight forward, and we were able to initially split it up into three classes so that each    person could work on one in their own time.
+    and working. Our idea was also pretty straight forward, and we were able to initially split it up into three classes so that each    
+    person could work on one in their own time.
 
 WHAT DIDN'T GO WELL:
     We definitely could've gotten the project done earlier to decrease stress due to timing, as well as communicated more constantly.
@@ -13,6 +14,8 @@ WHAT WE LEARNED:
     around anything else they may be doing.
 
 WHY WE SHOULD GET FULL DISCRETIONARY POINTS:
-    Even though Uno is a very popular household game, we should get full discretionary points because the game was complex to program    due to the consideration of the different card colors, the numbers, the types of non-number cards and the actions that were
-    called by those cards. The user interface is also very clean and easy to use, and could be a lot of fun for people to use if they    wanted to play a fun game of Uno but didn't have any cards. It's also great for a group of people, since the game can handle up
+    Even though Uno is a very popular household game, we should get full discretionary points because the game was complex to program    
+    due to the consideration of the different card colors, the numbers, the types of non-number cards and the actions that were
+    called by those cards. The user interface is also very clean and easy to use, and could be a lot of fun for people to use if they   
+    wanted to play a fun game of Uno but didn't have any cards. It's also great for a group of people, since the game can handle up
     six people.
