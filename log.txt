@@ -37,4 +37,18 @@ Abbigail Upchurch:
     Finished up the skeleton for the gameplay class and tested the program with the previous bugs that I had encountered before with the 
     isValidPlay function and was able to rubberduck method my way to solving it ass i had to add more if statements to make sure that the 
     rules were specific enough for the game to follow the rules of uno. Tested it from 2 to 6 players as well. 
+Gururaj Khot:
+Total time logged: 7.5 hours
+
+11-28, 10 am - 11 am, 1 hour:
+I started with setting up a plan on paper for how game works and its essential characterstics and behaviors. I realized that the Its primary purpose is to manage a player's hand, track their actions, and determine their game status through well-defined methods.
+
+11-29 , 9 pm - 10:30 pm , 1.5 hours 
+I setup the project structure, defining the class header with method signatures, implementing the constructor, and creating basic getter methods like getName() and getHand().  
+
+11-30, 12 pm - 3 pm , 3 hours:
+Concentrated on implementing core gameplay methods that show player interactions. Developed the drawCard() method to handle card acquisiton from deck, also created the playCard() method to method to manage card removal and placement in discard pile. 
+
+12 - 4 , 7 pm - 9 pm , 2 hours:
+The final 1-2 hours I dedicated to  testing, refinement, and documentation. I  wrote and detailed unit tests to verify each method's functionality, debugging any discovered issues, optimizing the code for performance and readability, and adding meaningful comments and documentation.
 
