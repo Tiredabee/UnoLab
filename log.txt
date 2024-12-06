@@ -18,3 +18,21 @@ Noelle Whidden:
     We worked on making sure that the code worked effectively on our computers, as well as the other submissions that go along with
     this lab. We were having an issue with the cards with different colors and numbers not registering as incorrect matches as well, so we worked on trying to find the issue.
 
+Abbigail Upchurch:
+    TOTAL TIME LOGGED: 9 hours
+
+        11-27, 1:00 pm - 3:00 pm, 2 hours: 
+    Set up the card class from th given function from the uno.h file that we worked on together, and added some getValue and getType function
+    to it. Made sure to sketch out a plan given my schedule to work on the card class as needed
+
+        12-3, 2:00 pm - 6:00 pm, 4 hours:
+    Embarissingly relaized needed to make a class just to make sure the game ran, after I found that i needed to make sure the game was playable
+    and that the three classes we had wasn't enough. Had to modify the uno.h and uno.cpp file. After writing a skeleton in both files for the 
+    gameplay class, made a basic play function in the main program to test it, with some bugs that I wasn't able to figure out at the time. 
+
+
+        12-5, 6:00 pm - 9:00 pm, 3 hours:
+    Finished up the skeleton for the gameplay class and tested the program with the previous bugs that I had encountered before with the 
+    isValidPlay function and was able to rubberduck method my way to solving it ass i had to add more if statements to make sure that the 
+    rules were specific enough for the game to follow the rules of uno. Tested it from 2 to 6 players as well. 
+
