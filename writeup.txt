@@ -6,6 +6,8 @@ WHAT WENT WELL:
 
 WHAT DIDN'T GO WELL:
     We definitely could've gotten the project done earlier to decrease stress due to timing, as well as communicated more constantly.
+    We also learned more about debugging as we encountered many issues in the gameplay class as we began to develop and work on it.
+    Much of our time was spent troubleshooting and checking what went wrong and what we needed to fix and how.
 
 WHAT WE LEARNED:
     Starting to communicate, plan, and work with group project members as early as possible is extremely important and beneficial.
