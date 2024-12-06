@@ -9,7 +9,7 @@
  * finmain.cpp controls the calling of the larger-scale functions that start the game and keep it running, while it
  * calls the smaller-scale functions on its own. */ 
 
-#include "uno.h"
+#include "finuno.h"
 #include <iostream>
 
 int main() {
