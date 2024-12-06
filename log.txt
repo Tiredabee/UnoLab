@@ -16,7 +16,8 @@ Noelle Whidden:
 
     12-5, 5:00-9:00, 4 hours
     We worked on making sure that the code worked effectively on our computers, as well as the other submissions that go along with
-    this lab. We were having an issue with the cards with different colors and numbers not registering as incorrect matches as well, so we worked on trying to find the issue.
+    this lab. We were having an issue with the cards with different colors and numbers not registering as incorrect matches as well, 
+    so we worked on trying to find the issue.
 
 Abbigail Upchurch:
     TOTAL TIME LOGGED: 9 hours
