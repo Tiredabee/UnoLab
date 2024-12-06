@@ -101,6 +101,7 @@ class UnoGame {
         bool reverseOrder;
         Color currentColor;
         Type currentType;
+        int currentValue
 
 
         void nextPlayer();
