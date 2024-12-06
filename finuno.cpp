@@ -1,4 +1,3 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 #include "uno.h"
 #include <algorithm>
 #include <iostream>
@@ -92,11 +91,12 @@ bool Deck::isEmpty() const {
 void Deck::initializeDeck() {
     cards.clear(); // clear the deck
 
-    for (int i = 0; i < 4; i++) { // four colors
+    for (int i = 0; i < 4; i++) { 
         Color color = static_cast<Color>(i);
 
         // 1-9 (two per color)
         for (int number = 1; number <= 9; number++) {
+            cards.push_back(Card(color, Type::NUMBER, number));
             cards.push_back(Card(color, Type::NUMBER, number));
         }
 
@@ -151,7 +151,7 @@ const std::vector<Card>& Player::getHand() const {
 }
 
 
-
+// takes in players and starts game
 UnoGame::UnoGame(int numPlayers) : currentPlayerIndex(0), reverseOrder(false), currentColor(Color::NONE), currentType(Type::NUMBER) {
     for (int i = 0; i < numPlayers; ++i) {
         std::string playerName;
@@ -163,7 +163,7 @@ UnoGame::UnoGame(int numPlayers) : currentPlayerIndex(0), reverseOrder(false), c
     startGame();
 }
 
-
+// deals cards to players and draws the discard card
 void UnoGame::startGame() {
     for (auto& player : players) {
         for (int i = 0; i < 7; ++i) {
@@ -180,6 +180,7 @@ void UnoGame::startGame() {
     discardPile.push_back(firstCard);
     currentColor = firstCard.getColor();
     currentType = firstCard.getType();
+    currentValue = firstCard.getValue();
 }
 
 void UnoGame::shuffleDeck() {
@@ -236,19 +237,20 @@ void UnoGame::takeTurn() {
         std::cin >> choice;
 
         if (choice == 'y' || choice == 'Y') {
-            // Player draws a card
             currentPlayer.drawCard(deck);
             std::cout << "You drew: " << currentPlayer.getHand().back().toString() << std::endl;
 
             // Check if the drawn card is valid
             if (isValidPlay(currentPlayer.getHand().back())) {
                 std::cout << "You can play the card you drew." << std::endl;
-            } else {
+            }
+            else {
                 std::cout << "You still have no valid cards to play. Skipping your turn." << std::endl;
                 nextPlayer();
                 return;
             }
-        } else {
+        }
+        else {
             std::cout << "Invalid input. Skipping your turn." << std::endl;
             nextPlayer();
             return;
@@ -256,16 +258,15 @@ void UnoGame::takeTurn() {
     }
 
     // Check if the player has only one card left
-    if (currentPlayer.getHand().size() == 1) {
-        std::cout << currentPlayer.getName() << ", you have one card left! Say 'UNO' to continue." << std::endl;
+    if (currentPlayer.getHand().size() == 2) {
+        std::cout << "\n" << currentPlayer.getName() << ": ";
         std::string unoResponse;
         std::cin >> unoResponse;
 
         // If the player doesn't say 'UNO', you can enforce a penalty or just print a message
         if (unoResponse != "UNO" && unoResponse != "uno") {
             std::cout << "You didn't say 'UNO'! You have been penalized." << std::endl;
-            // Implement penalty logic, e.g., drawing a card, skipping a turn, etc.
-            currentPlayer.drawCard(deck);  // Example of a penalty (draw a card)
+            currentPlayer.drawCard(deck); 
         }
     }
 
@@ -279,7 +280,8 @@ void UnoGame::takeTurn() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Invalid input, please try again.\n";
-        } else {
+        }
+        else {
             Card cardToPlay = currentPlayer.getHand()[cardIndex];
 
             if (isValidPlay(cardToPlay)) {
@@ -288,21 +290,26 @@ void UnoGame::takeTurn() {
 
                 currentColor = cardToPlay.getColor();
                 currentType = cardToPlay.getType();
+                currentValue = cardToPlay.getValue();
 
                 // Handle special cards (Wilds, Skips, Reverses, etc.)
                 if (cardToPlay.getType() == Type::WILD || cardToPlay.getType() == Type::WILD_DRAW_FOUR) {
                     std::cout << "Choose a color (Red, Green, Blue, Yellow): ";
                     std::string colorChoice;
                     std::cin >> colorChoice;
-                    if (colorChoice == "Red") {
+                    if (colorChoice == "Red" || colorChoice == "red") {
                         currentColor = Color::RED;
-                    } else if (colorChoice == "Green") {
+                    }
+                    else if (colorChoice == "Green" || colorChoice == "green") {
                         currentColor = Color::GREEN;
-                    } else if (colorChoice == "Blue") {
+                    }
+                    else if (colorChoice == "Blue" || colorChoice == "blue") {
                         currentColor = Color::BLUE;
-                    } else if (colorChoice == "Yellow") {
+                    }
+                    else if (colorChoice == "Yellow" || colorChoice == "yellow") {
                         currentColor = Color::YELLOW;
-                    } else {
+                    }
+                    else {
                         std::cout << "Invalid color. Defaulting to Red." << std::endl;
                         currentColor = Color::RED;
                     }
@@ -319,13 +326,23 @@ void UnoGame::takeTurn() {
                 // Special actions for cards like Skip, Reverse, Draw Two, Wild Draw Four
                 if (currentType == Type::SKIP) {
                     skipTurn();
-                } else if (currentType == Type::REVERSE) {
+                }
+                else if (currentType == Type::REVERSE) {
                     reverseTurnOrder();
-                } else if (currentType == Type::DRAW_TWO) {
+                }
+                else if (currentType == Type::DRAW_TWO) {
                     drawTwo();
-                } else if (currentType == Type::WILD_DRAW_FOUR) {
+                }
+                else if (currentType == Type::WILD_DRAW_FOUR) {
                     wildDrawFour();
                 }
+            }
+
+            else {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Invalid input, please try again.\n";
+
             }
         }
     }
@@ -371,31 +388,29 @@ void UnoGame::wildDrawFour() {
     }
 }
 
-
+// checks if the player can put down a card
 bool UnoGame::isValidPlay(const Card &card) const {
-    // Get the current card color, type, and value from the discard pile
-    Color currentColor = discardPile.back().getColor();
-    Type currentType = discardPile.back().getType();
-    int currentValue = discardPile.back().getValue();
-
-    // If the card is Wild or Wild Draw Four, it's always valid
-    if (card.getType() == Type::WILD || card.getType() == Type::WILD_DRAW_FOUR) {
+    if (card.getColor() == currentColor || card.getColor() == Color::NONE) {
         return true;
     }
 
-    // Check for a match in color or value
-    if (card.getColor() == currentColor || card.getValue() == currentValue) {
-        return true;
+    if (card.getType() != Type::NUMBER) {
+        if (card.getType() == currentType) {
+            return true;
+        }
+
     }
 
-    // If it’s a special type (like Skip, Reverse, Draw Two) that matches the type, allow it
-    if (card.getType() == currentType) {
-        return true;
+    else {
+        if (card.getValue() == currentValue) {
+            return true;
+        }
     }
 
-    // If no match in color, value, or type, it’s not a valid play
     return false;
+
 }
+
 
 
 
