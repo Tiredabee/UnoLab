@@ -9,7 +9,7 @@
  * finuno.cpp runs almost the entirety of the game, including initializing the cards, deck, and players as well as the
  * gameplay. */ 
 
-#include "uno.h"
+#include "finuno.h"
 #include <algorithm>
 #include <iostream>
 #include <random>
